@@ -73,10 +73,23 @@ nextBtn.onclick = () => {
   currentImage++;
   currentSongName++;
   currentSongIndex++;
-  image.src = `images/${songPhotos[currentImage]}.jpg`;
-  songElement.src = "songs/" + playlist[currentSongIndex];
-  songTitle.innerHTML = names[currentSongName];
-  songElement.play();
+  if (
+    (currentImage,
+    currentSongName,
+    currentSongIndex >= 0 && currentImage,
+    currentSongName,
+    currentSongIndex < 7)
+  ) {
+    image.src = `images/${songPhotos[currentImage]}.jpg`;
+    songElement.src = "songs/" + playlist[currentSongIndex];
+    songTitle.innerHTML = names[currentSongName];
+    songElement.play();
+  } else if ((currentImage, currentSongName, currentSongIndex >= 7)) {
+    image.src = `images/${songPhotos[(currentImage = 0)]}.jpg`;
+    songElement.src = "songs/" + playlist[(currentSongIndex = 0)];
+    songTitle.innerHTML = names[(currentSongName = 0)];
+    songElement.play();
+  }
 };
 previousBtn.onclick = () => {
   currentImage--;
